@@ -1,21 +1,23 @@
 package modelo;
 
+import util.VerificarString;
+
 import java.time.Year;
 
 public abstract class Veiculo {
     private int id;
     private String placa;
     private String tipo;
-    private String modelo;
     private String marca;
+    private String modelo;
     private Year anoFabricacao;
     private boolean disponivel;
 
-    public Veiculo(String placa, String tipo, String modelo, String marca, Year anoFabricacao){
+    public Veiculo(String placa, String tipo, String marca, String modelo, Year anoFabricacao){
         setPlaca(placa);
         setTipo(tipo);
-        setModelo(modelo);
         setMarca(marca);
+        setModelo(modelo);
         setAnoFabricacao(anoFabricacao);
     }
 
@@ -39,6 +41,9 @@ public abstract class Veiculo {
         if (placa == null || placa.isBlank()) {
             throw new IllegalArgumentException("Placa inválida.");
         }
+        if (!VerificarString.validarPlaca(placa)) {
+            throw new IllegalArgumentException("Placa inválida. Placa deve conter 7 caracteres de (A-Z) e (0-9)");
+        }
         this.placa = placa;
     }
 
@@ -59,6 +64,7 @@ public abstract class Veiculo {
                 || tipo.equalsIgnoreCase("camionete"))) {
             throw new IllegalArgumentException("Tipo de veiculo inválido.");
         }
+        tipo = VerificarString.formatarString(tipo);
         this.tipo = tipo;
     }
 
@@ -70,6 +76,7 @@ public abstract class Veiculo {
         if (modelo == null || modelo.isBlank()) {
             throw new IllegalArgumentException("Modelo inválido.");
         }
+        modelo = VerificarString.formatarString(modelo);
         this.modelo = modelo;
     }
 
@@ -81,6 +88,7 @@ public abstract class Veiculo {
         if (marca == null || marca.isBlank()) {
             throw new IllegalArgumentException("Marca inválida.");
         }
+        marca = VerificarString.formatarString(marca);
         this.marca = marca;
     }
 

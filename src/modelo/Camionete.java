@@ -6,8 +6,8 @@ public class Camionete extends Veiculo {
     private double precoBase = 200;
     private int horasAlugadas;
 
-    public Camionete(String placa, String tipo, String modelo, String marca, int anoFabricacao, int horasAlugadas) {
-        super(placa, tipo, modelo, marca, Year.of(anoFabricacao));
+    public Camionete(String placa, String tipo, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
+        super(placa, tipo, marca, modelo, Year.of(anoFabricacao));
         setHorasAlugadas(horasAlugadas);
         setDisponivel(false);
     }

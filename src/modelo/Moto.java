@@ -6,8 +6,8 @@ public class Moto extends Veiculo {
     private double precoBase = 25;
     private int horasAlugadas;
 
-    public Moto(String placa, String tipo, String modelo, String marca, int anoFabricacao, int horasAlugadas) {
-        super(placa, tipo, modelo, marca, Year.of(anoFabricacao));
+    public Moto(String placa, String tipo, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
+        super(placa, tipo, marca, modelo, Year.of(anoFabricacao));
         setHorasAlugadas(horasAlugadas);
         setDisponivel(false);
     }
