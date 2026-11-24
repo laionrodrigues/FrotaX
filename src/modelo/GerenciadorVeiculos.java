@@ -16,7 +16,7 @@ public class GerenciadorVeiculos {
 
     public double calcularAluguel(Veiculo veiculo) {
         if (veiculo == null) {
-            throw new IllegalArgumentException("Veículo inesxistente.");
+            throw new IllegalArgumentException("Veículo inexistente.");
         }
 
         int anoAtual = Year.now().plusYears(1).getValue();
@@ -25,15 +25,15 @@ public class GerenciadorVeiculos {
         int horasAlugadas = veiculo.getHorasAlugadas();
         double precoBase = veiculo.getPrecoBase();
 
-        int anosDeUso = anoAtual - anoFabricacao;
+        int anosDeUso = Math.max(0, anoAtual - anoFabricacao);
 
         if (anosDeUso == 0) {
-            return precoFinal = precoBase;
+            precoFinal = precoBase * horasAlugadas;
+            return precoFinal;
         } else {
-            double calcularPorcentagem = precoBase * (anosDeUso / 100);
-            precoBase -= calcularPorcentagem;
-            precoBase *= horasAlugadas;
-            precoFinal = precoBase;
+            double desconto = precoBase * (anosDeUso / 100.0);
+            double valorComDesconto = precoBase - desconto;
+            precoFinal = valorComDesconto * horasAlugadas;
             return precoFinal;
         }
     }

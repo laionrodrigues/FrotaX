@@ -3,7 +3,7 @@ package modelo;
 import java.time.Year;
 
 public class Carro extends Veiculo {
-    private double precoBase = 150;
+    private double precoBase = 15;
     private int horasAlugadas;
 
 
