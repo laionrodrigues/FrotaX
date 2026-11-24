@@ -1,9 +1,6 @@
 package teste;
 
-import modelo.Carro;
-import modelo.GerenciadorVeiculos;
-import modelo.Moto;
-import modelo.Veiculo;
+import modelo.*;
 
 public class Main {
     static void main() {
@@ -17,6 +14,16 @@ public class Main {
         gerenciadorVeiculos.adicionarVeiculo(moto);
         System.out.println(gerenciadorVeiculos.calcularAluguel(moto));
         System.out.println(moto);
+
+        Camionete camionete = new Camionete("DAS-123", "camionete", "SW4", "hilux", 2025, 20);
+        gerenciadorVeiculos.adicionarVeiculo(camionete);
+        System.out.println(gerenciadorVeiculos.calcularAluguel(camionete));
+        System.out.println(camionete);
+
+        Caminhao caminhao = new Caminhao("FBS-453", "caminhao", "MERCEDES", "MERCEDES", 2025, 20);
+        gerenciadorVeiculos.adicionarVeiculo(caminhao);
+        System.out.println(gerenciadorVeiculos.calcularAluguel(caminhao));
+        System.out.println(caminhao);
 
     }
 }

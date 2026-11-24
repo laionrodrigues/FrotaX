@@ -9,6 +9,7 @@ public abstract class Veiculo {
     private String modelo;
     private String marca;
     private Year anoFabricacao;
+    private boolean disponivel;
 
     public Veiculo(String placa, String tipo, String modelo, String marca, Year anoFabricacao){
         setPlaca(placa);
@@ -46,6 +47,9 @@ public abstract class Veiculo {
     }
 
     public void setTipo(String tipo) {
+        if ((tipo.equalsIgnoreCase("caminhao"))) {
+            throw new IllegalArgumentException("Tipo inválido. É necessário acento ~ no caminh(a)o ");
+        }
         if (tipo == null || tipo.isBlank()) {
             throw new IllegalArgumentException("Tipo de veículo inválido.");
         }
@@ -101,5 +105,13 @@ public abstract class Veiculo {
 
     public Year getAnoFabricacao() {
         return anoFabricacao;
+    }
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
     }
 }
