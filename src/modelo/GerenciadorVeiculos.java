@@ -9,25 +9,32 @@ public class GerenciadorVeiculos {
     private int proximoId = 1;
     private double precoFinal;
 
-    public void adicionar(Veiculo veiculo) {
+    public void adicionarVeiculo(Veiculo veiculo) {
         veiculo.setId(proximoId++);
         frota.add(veiculo);
     }
 
     public double calcularAluguel(Veiculo veiculo) {
         if (veiculo == null) {
-            throw new IllegalArgumentException("Veículo não pode ser nulo.");
+            throw new IllegalArgumentException("Veículo inesxistente.");
         }
 
-        int horas = veiculo.getHorasAlugadas();
+        int anoAtual = Year.now().plusYears(1).getValue();
+        int anoFabricacao = veiculo.getAnoFabricacao().getValue();
+
+        int horasAlugadas = veiculo.getHorasAlugadas();
         double precoBase = veiculo.getPrecoBase();
 
-        int anosDeUso = Year.now().getValue() - veiculo.getAnoFabricacao().getValue();
+        int anosDeUso = anoAtual - anoFabricacao;
 
-        double valorFatorAno = Math.max(0.50, 1.0 - (anosDeUso * 0.02));
-
-        double valorHoraAjustado = precoBase * valorFatorAno;
-        precoFinal = valorHoraAjustado * horas;
-        return precoFinal;
+        if (anosDeUso == 0) {
+            return precoFinal = precoBase;
+        } else {
+            double calcularPorcentagem = precoBase * (anosDeUso / 100);
+            precoBase -= calcularPorcentagem;
+            precoBase *= horasAlugadas;
+            precoFinal = precoBase;
+            return precoFinal;
+        }
     }
 }

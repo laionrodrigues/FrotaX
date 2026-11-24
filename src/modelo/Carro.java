@@ -7,8 +7,9 @@ public class Carro extends Veiculo {
     private int horasAlugadas;
 
 
-    public Carro(String placa, String tipo, String modelo, String marca, int anoFabricacao) {
+    public Carro(String placa, String tipo, String modelo, String marca, int anoFabricacao, int horasAlugadas) {
         super(placa, tipo, modelo, marca, Year.of(anoFabricacao));
+        this.horasAlugadas = horasAlugadas;
     }
 
     @Override
