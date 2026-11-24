@@ -10,8 +10,18 @@ public class GerenciadorVeiculos {
     private double precoFinal;
 
     public void adicionarVeiculo(Veiculo veiculo) {
+        if (veiculo == null) {
+            throw new IllegalArgumentException("Veículo inexistente.");
+        }
         veiculo.setId(proximoId++);
         frota.add(veiculo);
+    }
+
+    public void removerVeiculo(Veiculo veiculo) {
+        if (veiculo == null) {
+            throw new IllegalArgumentException("Veículo inexistente.");
+        }
+        frota.remove(veiculo);
     }
 
     public double calcularAluguel(Veiculo veiculo) {

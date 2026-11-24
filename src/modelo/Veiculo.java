@@ -36,7 +36,7 @@ public abstract class Veiculo {
 
     public void setPlaca(String placa) {
         if (placa == null || placa.isBlank()) {
-            throw new IllegalArgumentException("Placa inválida");
+            throw new IllegalArgumentException("Placa inválida.");
         }
         this.placa = placa;
     }
@@ -47,13 +47,13 @@ public abstract class Veiculo {
 
     public void setTipo(String tipo) {
         if (tipo == null || tipo.isBlank()) {
-            throw new IllegalArgumentException("Tipo de veículo inválido");
+            throw new IllegalArgumentException("Tipo de veículo inválido.");
         }
         if (!(tipo.equalsIgnoreCase("carro")
                 || tipo.equalsIgnoreCase("caminhão")
                 || tipo.equalsIgnoreCase("moto")
                 || tipo.equalsIgnoreCase("camionete"))) {
-            throw new IllegalArgumentException("Tipo de veiculo inválido");
+            throw new IllegalArgumentException("Tipo de veiculo inválido.");
         }
         this.tipo = tipo;
     }
@@ -64,7 +64,7 @@ public abstract class Veiculo {
 
     public void setModelo(String modelo) {
         if (modelo == null || modelo.isBlank()) {
-            throw new IllegalArgumentException("Modelo inválido");
+            throw new IllegalArgumentException("Modelo inválido.");
         }
         this.modelo = modelo;
     }
@@ -75,7 +75,7 @@ public abstract class Veiculo {
 
     public void setMarca(String marca) {
         if (marca == null || marca.isBlank()) {
-            throw new IllegalArgumentException("Marca inválida");
+            throw new IllegalArgumentException("Marca inválida.");
         }
         this.marca = marca;
     }
@@ -89,7 +89,7 @@ public abstract class Veiculo {
             throw new IllegalArgumentException("O ano do veículo não pode ser nulo.");
         }
 
-        Year anoMinimo = Year.of(2010);
+        Year anoMinimo = Year.now().plusYears(-6);
         Year anoMaximo = Year.now().plusYears(1);
 
         if (anoFabricacao.isBefore(anoMinimo) || anoFabricacao.isAfter(anoMaximo)) {
