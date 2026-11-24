@@ -1,4 +1,6 @@
-package modelo;
+package service;
+
+import modelo.Veiculo;
 
 import java.time.Year;
 import java.util.ArrayList;

@@ -22,14 +22,14 @@ public abstract class Veiculo {
     }
 
     public String toString() {
-        return  "MARCA: " + getMarca() + "\nTIPO: " + getTipo() + "\nID: " + getId();
+        return  "ID: " + getId() + "\nTIPO: " + getTipo();
     }
 
     public int getId() {
         return id;
     }
 
-    protected void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 

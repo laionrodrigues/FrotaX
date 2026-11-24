@@ -1,6 +1,7 @@
 package teste;
 
 import modelo.*;
+import service.GerenciadorVeiculos;
 
 public class Main {
     static void main() {
@@ -9,17 +10,17 @@ public class Main {
         gerenciadorVeiculos.adicionarVeiculo(carro);
         System.out.println(gerenciadorVeiculos.calcularAluguel(carro));
         System.out.println(carro);
-
+        System.out.println();
         Moto moto = new Moto("KDA312S", "moto", "CJ", "Honnda", 2022,7);
         gerenciadorVeiculos.adicionarVeiculo(moto);
         System.out.println(gerenciadorVeiculos.calcularAluguel(moto));
         System.out.println(moto);
-
+        System.out.println();
         Camionete camionete = new Camionete("DAS2123", "camionete", "SW4", "hilux", 2025, 20);
         gerenciadorVeiculos.adicionarVeiculo(camionete);
         System.out.println(gerenciadorVeiculos.calcularAluguel(camionete));
         System.out.println(camionete);
-
+        System.out.println();
         Caminhao caminhao = new Caminhao("FBS3453", "caminhão", "MERCEDES", "MERCEDES", 2025, 20);
         gerenciadorVeiculos.adicionarVeiculo(caminhao);
         System.out.println(gerenciadorVeiculos.calcularAluguel(caminhao));
