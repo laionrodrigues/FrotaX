@@ -1,7 +1,10 @@
 package teste;
 
 import modelo.*;
+import service.GerenciadorCliente;
 import service.GerenciadorVeiculos;
+
+import java.time.LocalDate;
 
 public class Main {
     static void main() {
@@ -26,5 +29,14 @@ public class Main {
         System.out.println(gerenciadorVeiculos.calcularAluguel(caminhao));
         System.out.println(caminhao);
 
+        System.out.println();
+
+
+        GerenciadorCliente gerenciadorCliente = new GerenciadorCliente();
+        Cliente cliente = new Cliente("Matheus","Rosa", LocalDate.of(2000, 5, 10), "04903206009", "67821509566");
+        System.out.println(cliente);
+        gerenciadorCliente.adicionarCliente(cliente);
+        gerenciadorCliente.buscarPorCpf("04903206009");
+        gerenciadorCliente.listarClientes();
     }
 }
