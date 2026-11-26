@@ -9,7 +9,13 @@ public class TelaLoguin extends javax.swing.JFrame {
     public TelaLoguin() {
         initComponents();
         setTitle("Sistema de Frota e Locações");
+        this.configTelas();
+    }
+    
+    private void configTelas() {
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/Logo.png")).getImage());
         setResizable(false);
+        setLocationRelativeTo(this);
     }
 
    @SuppressWarnings("unchecked")
@@ -22,6 +28,7 @@ public class TelaLoguin extends javax.swing.JFrame {
         jTextField_CampoLoguin = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPasswordField_CampoSenha = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -33,19 +40,27 @@ public class TelaLoguin extends javax.swing.JFrame {
         jPanel1.setMaximumSize(new java.awt.Dimension(1024, 700));
         jPanel1.setMinimumSize(new java.awt.Dimension(1024, 700));
         jPanel1.setOpaque(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 700));
 
         jToggleButton_Entrar.setText("Entrar");
+        jToggleButton_Entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jToggleButton_Entrar.setFocusCycleRoot(true);
         jToggleButton_Entrar.addActionListener(this::jToggleButton_EntrarActionPerformed);
 
         jLabel2.setText("Loguin:");
 
+        jTextField_CampoLoguin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTextField_CampoLoguin.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextField_CampoLoguin.setMaximumSize(new java.awt.Dimension(64, 22));
         jTextField_CampoLoguin.addActionListener(this::jTextField_CampoLoguinActionPerformed);
 
         jLabel3.setText("Senha:");
 
+        jPasswordField_CampoSenha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPasswordField_CampoSenha.setMaximumSize(new java.awt.Dimension(64, 22));
-        jPasswordField_CampoSenha.setPreferredSize(new java.awt.Dimension(64, 22));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel4.setText("FrotaX");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,13 +77,18 @@ public class TelaLoguin extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jTextField_CampoLoguin, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                             .addComponent(jLabel3)
-                            .addComponent(jPasswordField_CampoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jPasswordField_CampoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(435, 435, 435)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(407, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(281, Short.MAX_VALUE)
+                .addContainerGap(180, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField_CampoLoguin, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,7 +154,6 @@ public class TelaLoguin extends javax.swing.JFrame {
         }
         jTextField_CampoLoguin.setText("");
         jPasswordField_CampoSenha.setText("");
-        jToggleButton_Entrar.setFocusPainted(false);
     }//GEN-LAST:event_jToggleButton_EntrarActionPerformed
 
     private void jTextField_CampoLoguinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_CampoLoguinActionPerformed
@@ -152,6 +171,7 @@ public class TelaLoguin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField_CampoSenha;
     private javax.swing.JTextField jTextField_CampoLoguin;
