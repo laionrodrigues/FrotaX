@@ -20,6 +20,7 @@ public abstract class Veiculo {
         setMarca(marca);
         setModelo(modelo);
         setAnoFabricacao(anoFabricacao);
+        setPrecoBase(precoBase);
     }
 
     public String toString() {
@@ -97,7 +98,7 @@ public abstract class Veiculo {
         return precoBase;
     }
 
-    public void setPrecoBase(int precoBase) {
+    public void setPrecoBase(double precoBase) {
         if (precoBase < 0.0) {
             throw new IllegalArgumentException("Preço inválido.");
         }

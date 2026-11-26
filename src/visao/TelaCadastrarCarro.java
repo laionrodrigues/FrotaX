@@ -150,13 +150,13 @@ public class TelaCadastrarCarro extends javax.swing.JFrame {
             GerenciadorVeiculos gerenciadorVeiculos = new GerenciadorVeiculos();
             
             if(tipo.equalsIgnoreCase("Carro")) {
-                Carro carro = new Carro(placa, tipo, marca, modelo, anoFabricacao.getValue(), 6);
+                Carro carro = new Carro(placa, marca, modelo, anoFabricacao.getValue(), 6);
                 gerenciadorVeiculos.adicionarVeiculo(carro);
             } else if (tipo.equalsIgnoreCase("Moto")) {
-                Moto moto = new Moto(placa, tipo, marca, modelo, anoFabricacao.getValue(), 6);
+                Moto moto = new Moto(placa, marca, modelo, anoFabricacao.getValue(), 6);
                 gerenciadorVeiculos.adicionarVeiculo(moto);
             } else if (tipo.equalsIgnoreCase("Camionete")) {
-                Camionete camionete = new Camionete(placa, tipo, marca, modelo, anoFabricacao.getValue(), 6);
+                Camionete camionete = new Camionete(placa,, marca, modelo, anoFabricacao.getValue(), 6);
                 gerenciadorVeiculos.adicionarVeiculo(camionete);
             } else {
                 Caminhao caminhao = new Caminhao(placa, tipo, marca, modelo, anoFabricacao.getValue(), 6);
