@@ -8,11 +8,11 @@ public class TelaLoguin extends javax.swing.JFrame {
 
     public TelaLoguin() {
         initComponents();
-        setTitle("Sistema de Frota e Locações");
         this.configTelas();
     }
     
     private void configTelas() {
+        setTitle("FrotaX");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/Logo.png")).getImage());
         setResizable(false);
         setLocationRelativeTo(this);
@@ -80,7 +80,7 @@ public class TelaLoguin extends javax.swing.JFrame {
                             .addComponent(jPasswordField_CampoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(435, 435, 435)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel4)))
                 .addContainerGap(407, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,6 +154,10 @@ public class TelaLoguin extends javax.swing.JFrame {
         }
         jTextField_CampoLoguin.setText("");
         jPasswordField_CampoSenha.setText("");
+
+        TelaPrincipal telaPrincipal = new TelaPrincipal();
+        telaPrincipal.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jToggleButton_EntrarActionPerformed
 
     private void jTextField_CampoLoguinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_CampoLoguinActionPerformed

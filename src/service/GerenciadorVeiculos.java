@@ -32,7 +32,7 @@ public class GerenciadorVeiculos {
         }
 
         int anoAtual = Year.now().plusYears(1).getValue();
-        int anoFabricacao = veiculo.getAnoFabricacao().getValue();
+        int anoFabricacao = veiculo.getAnoFabricacao();
 
         int horasAlugadas = veiculo.getHorasAlugadas();
         double precoBase = veiculo.getPrecoBase();

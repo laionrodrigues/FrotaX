@@ -10,10 +10,11 @@ public abstract class Veiculo {
     private String tipo;
     private String marca;
     private String modelo;
-    private Year anoFabricacao;
+    private int anoFabricacao;
+    private double precoBase;
     private boolean disponivel;
 
-    public Veiculo(String placa, String tipo, String marca, String modelo, Year anoFabricacao){
+    public Veiculo(String placa, String tipo, String marca, String modelo, int anoFabricacao, double precoBase){
         setPlaca(placa);
         setTipo(tipo);
         setMarca(marca);
@@ -92,26 +93,31 @@ public abstract class Veiculo {
         this.marca = marca;
     }
 
-    public abstract double getPrecoBase();
+    public double getPrecoBase() {
+        return precoBase;
+    }
+
+    public void setPrecoBase(int precoBase) {
+        if (precoBase < 0.0) {
+            throw new IllegalArgumentException("Preço inválido.");
+        }
+        this.precoBase = precoBase;
+    }
 
     public abstract int getHorasAlugadas();
 
-    public void setAnoFabricacao(Year anoFabricacao) {
-        if (anoFabricacao == null) {
-            throw new IllegalArgumentException("O ano do veículo não pode ser nulo.");
-        }
+    public void setAnoFabricacao(int anoFabricacao) {
+        int anoMinimo = Year.now().plusYears(-6).getValue();
+        int anoMaximo = Year.now().plusYears(1).getValue();
 
-        Year anoMinimo = Year.now().plusYears(-6);
-        Year anoMaximo = Year.now().plusYears(1);
-
-        if (anoFabricacao.isBefore(anoMinimo) || anoFabricacao.isAfter(anoMaximo)) {
-            throw new IllegalArgumentException("Ano inválido. O veículo deve ser entre " + anoMinimo + " e " + anoMaximo + ".");
+        if (anoFabricacao < anoMinimo || anoFabricacao > anoMaximo) {
+            throw new IllegalArgumentException("Ano inválido. O ano deve ser entre " + anoMinimo + " e " + anoMaximo + ".");
         }
 
         this.anoFabricacao = anoFabricacao;
     }
 
-    public Year getAnoFabricacao() {
+    public int getAnoFabricacao() {
         return anoFabricacao;
     }
 

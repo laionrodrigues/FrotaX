@@ -7,14 +7,25 @@ public class TelaCarro extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaCarro.class.getName());
     
-    private GerenciadorVeiculos gerenciadorVeiculos = new GerenciadorVeiculos();
+    private GerenciadorVeiculos gerenciadorVeiculos;
 
     public TelaCarro() {
         initComponents();
-        setTitle("Sistema de Frota e Locações");
-        setResizable(false);
+        this.configTelas();
+    }
+    
+    public TelaCarro(GerenciadorVeiculos gerenciadorVeiculos) {
+        initComponents();
+        this.gerenciadorVeiculos = gerenciadorVeiculos;
     }
 
+    private void configTelas() {
+        setTitle("FrotaX");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/Logo.png")).getImage());
+        setResizable(false);
+        setLocationRelativeTo(this);
+    }
+    
    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -72,6 +83,7 @@ public class TelaCarro extends javax.swing.JFrame {
         jButton1.setText("Voltar");
 
         jToggleButton_CadastrarVeiculo.setText("Cadastrar");
+        jToggleButton_CadastrarVeiculo.addActionListener(this::jToggleButton_CadastrarVeiculoActionPerformed);
 
         jToggleButton_RemoverVeiculo.setText("Remover");
 
@@ -135,6 +147,11 @@ public class TelaCarro extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton_CadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_CadastrarVeiculoActionPerformed
+        TelaCadastrarCarro telaCadastrarCarro = new TelaCadastrarCarro();
+        telaCadastrarCarro.setVisible(true);
+    }//GEN-LAST:event_jToggleButton_CadastrarVeiculoActionPerformed
 
     /**
      * @param args the command line arguments

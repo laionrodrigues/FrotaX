@@ -3,18 +3,12 @@ package modelo;
 import java.time.Year;
 
 public class Camionete extends Veiculo {
-    private double precoBase = 200;
     private int horasAlugadas;
 
     public Camionete(String placa, String tipo, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
-        super(placa, tipo, marca, modelo, Year.of(anoFabricacao));
+        super(placa, tipo, marca, modelo, anoFabricacao, 200);
         setHorasAlugadas(horasAlugadas);
         setDisponivel(false);
-    }
-
-    @Override
-    public double getPrecoBase() {
-        return precoBase;
     }
 
     @Override

@@ -7,15 +7,10 @@ public class Carro extends Veiculo {
     private int horasAlugadas;
 
     public Carro(String placa, String tipo, String modelo, String marca, int anoFabricacao, int horasAlugadas) {
-        super(placa, tipo, modelo, marca, Year.of(anoFabricacao));
+        super(placa, tipo, modelo, marca, anoFabricacao, 50);
         setHorasAlugadas(horasAlugadas);
         setDisponivel(false);
 
-    }
-
-    @Override
-    public double getPrecoBase() {
-        return precoBase;
     }
 
     @Override
