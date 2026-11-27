@@ -146,30 +146,37 @@ public class TelaCadastrarCarro extends javax.swing.JFrame {
             String tipo = jTextField_Tipo.getText();
             String marca = jTextField_Marca.getText();
             String modelo = jTextField_Modelo.getText();
-            Year anoFabricacao = Year.parse(jTextField_AnoFabricacao.getText().trim());
+            int anoFabricacao = Integer.parseInt(jTextField_AnoFabricacao.getText());
             GerenciadorVeiculos gerenciadorVeiculos = new GerenciadorVeiculos();
             
+            
+            
             if(tipo.equalsIgnoreCase("Carro")) {
-                Carro carro = new Carro(placa, marca, modelo, anoFabricacao.getValue(), 6);
+                Carro carro = new Carro(placa, marca, modelo, anoFabricacao, 6);
                 gerenciadorVeiculos.adicionarVeiculo(carro);
                 this.dispose();
             } else if (tipo.equalsIgnoreCase("Moto")) {
-                Moto moto = new Moto(placa, marca, modelo, anoFabricacao.getValue(), 6);
+                Moto moto = new Moto(placa, marca, modelo, anoFabricacao, 6);
                 gerenciadorVeiculos.adicionarVeiculo(moto);
                 this.dispose();
             } else if (tipo.equalsIgnoreCase("Camionete")) {
-                Camionete camionete = new Camionete(placa, marca, modelo, anoFabricacao.getValue(), 6);
+                Camionete camionete = new Camionete(placa, marca, modelo, anoFabricacao, 6);
                 gerenciadorVeiculos.adicionarVeiculo(camionete);
                 this.dispose();
             } else {
-                Caminhao caminhao = new Caminhao(placa, marca, modelo, anoFabricacao.getValue(), 6);
+                Caminhao caminhao = new Caminhao(placa, marca, modelo, anoFabricacao, 6);
                 gerenciadorVeiculos.adicionarVeiculo(caminhao);
                 this.dispose();
             }
             javax.swing.JOptionPane.showMessageDialog(this, "Veículo cadastrado com sucesso!");
+        } catch (NumberFormatException e) {
+            // Caso o usuário digite letras no ano (ex: "abcd")
+            JOptionPane.showMessageDialog(this, "O ano de fabricação deve conter apenas números.", "Atenção", JOptionPane.WARNING_MESSAGE);
         } catch (IllegalArgumentException e) {
-            javax.swing.JOptionPane.showMessageDialog(this, e.getMessage(), "Atenção", javax.swing.JOptionPane.WARNING_MESSAGE);
-
+            // Dispara as mensagens dos setters (placa, marca, modelo, ano) na ordem!
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Atenção", JOptionPane.WARNING_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
         
     }//GEN-LAST:event_jToggleButton_CadastrarActionPerformed
