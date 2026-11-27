@@ -1,10 +1,12 @@
 package modelo;
 
+import java.math.BigDecimal;
+
 public class Carro extends Veiculo {
     private int horasAlugadas;
 
     public Carro(String placa,String tipo, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
-        super(placa, tipo, marca, modelo, anoFabricacao, 50);
+        super(placa, tipo, marca, modelo, anoFabricacao, new BigDecimal("50"));
         setHorasAlugadas(horasAlugadas);
     }
 

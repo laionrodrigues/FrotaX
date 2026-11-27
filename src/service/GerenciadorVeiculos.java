@@ -2,6 +2,8 @@ package service;
 
 import modelo.Veiculo;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +12,7 @@ import java.util.List;
 public class GerenciadorVeiculos {
     private final List<Veiculo> frota = new ArrayList();
     private int proximoId = 1;
-    private double precoFinal;
+    private BigDecimal precoFinal;
 
     public void adicionarVeiculo(Veiculo veiculo) {
         if (veiculo == null) {
@@ -27,7 +29,7 @@ public class GerenciadorVeiculos {
         frota.remove(veiculo);
     }
 
-    public double calcularAluguel(Veiculo veiculo) {
+    public BigDecimal calcularAluguel(Veiculo veiculo) {
         if (veiculo == null) {
             throw new IllegalArgumentException("Veículo inexistente.");
         }
@@ -35,18 +37,19 @@ public class GerenciadorVeiculos {
         int anoAtual = Year.now().plusYears(1).getValue();
         int anoFabricacao = veiculo.getAnoFabricacao();
 
-        int horasAlugadas = veiculo.getHorasAlugadas();
-        double precoBase = veiculo.getPrecoBase();
+        BigDecimal horasAlugadas = BigDecimal.valueOf(veiculo.getHorasAlugadas());
+        BigDecimal precoBase = veiculo.getPrecoBase();
 
         int anosDeUso = Math.max(0, anoAtual - anoFabricacao);
 
         if (anosDeUso == 0) {
-            precoFinal = precoBase * horasAlugadas;
+            precoFinal = precoBase.multiply(horasAlugadas).setScale(2, RoundingMode.HALF_EVEN);
             return precoFinal;
         } else {
-            double desconto = precoBase * (anosDeUso / 100.0);
-            double valorComDesconto = precoBase - desconto;
-            precoFinal = valorComDesconto * horasAlugadas;
+            BigDecimal percentualAnosDeUso = BigDecimal.valueOf(anosDeUso).divide(BigDecimal.valueOf(100),4, RoundingMode.HALF_EVEN);
+            BigDecimal desconto = precoBase.multiply(percentualAnosDeUso);
+            BigDecimal valorComDesconto = precoBase.subtract(desconto);
+            precoFinal = valorComDesconto.multiply(horasAlugadas).setScale(2, RoundingMode.HALF_EVEN);
             return precoFinal;
         }
     }

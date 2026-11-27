@@ -19,7 +19,7 @@ public class Main {
         System.out.println(gerenciadorVeiculos.calcularAluguel(moto));
         System.out.println(moto);
         System.out.println();
-        Camionete camionete = new Camionete("DAS2123", "Camionete", "Toyta", "SW4", 2020, 2);
+        Camionete camionete = new Camionete("DAS2123", "Camionete", "Toyta", "SW4", 2020, 20);
         gerenciadorVeiculos.adicionarVeiculo(camionete);
         System.out.println(gerenciadorVeiculos.calcularAluguel(camionete));
         System.out.println(camionete);

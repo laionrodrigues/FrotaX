@@ -2,6 +2,8 @@ package modelo;
 
 import util.VerificarString;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.Year;
 
 public abstract class Veiculo {
@@ -10,11 +12,11 @@ public abstract class Veiculo {
     private String tipo;
     private String marca;
     private String modelo;
-    private int anoFabricacao;
-    private double precoBase;
+    private int anoFabricacao;  
+    private BigDecimal precoBase;
     private boolean disponivel;
 
-    public Veiculo(String placa, String tipo, String marca, String modelo, int anoFabricacao, double precoBase){
+    public Veiculo(String placa, String tipo, String marca, String modelo, int anoFabricacao, BigDecimal precoBase){
         setPlaca(placa);
         setTipo(tipo);
         setMarca(marca);
@@ -96,15 +98,18 @@ public abstract class Veiculo {
         this.marca = marca;
     }
 
-    public double getPrecoBase() {
+    public BigDecimal getPrecoBase() {
         return precoBase;
     }
 
-    public void setPrecoBase(double precoBase) {
-        if (precoBase < 0.0) {
-            throw new IllegalArgumentException("Preço inválido.");
+    public void setPrecoBase(BigDecimal precoBase) {
+        if (precoBase == null) {
+            throw new IllegalArgumentException("O campo preço base não pode estar vazio.");
         }
-        this.precoBase = precoBase;
+        if (precoBase.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("O preço base deve ser maior que 0.");
+        }
+        this.precoBase = precoBase.setScale(2, RoundingMode.HALF_EVEN);
     }
 
     public abstract int getHorasAlugadas();
