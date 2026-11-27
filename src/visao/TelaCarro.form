@@ -126,8 +126,8 @@
                     <Column editable="false" title="Placa" type="java.lang.String"/>
                     <Column editable="false" title="Marca" type="java.lang.String"/>
                     <Column editable="false" title="Modelo" type="java.lang.String"/>
-                    <Column editable="false" title="Ano Fabr." type="java.lang.Integer"/>
-                    <Column editable="false" title="Pre&#xe7;o Base R$" type="java.lang.Double"/>
+                    <Column editable="false" title="Ano Fabr." type="java.lang.String"/>
+                    <Column editable="false" title="Pre&#xe7;o Base" type="java.lang.String"/>
                     <Column editable="false" title="Dispon&#xed;vel/Alugado" type="java.lang.Boolean"/>
                   </Table>
                 </Property>

@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Veiculo;
 import service.GerenciadorVeiculos;
+import util.VerificarString;
 
 public class TelaCarro extends javax.swing.JFrame {
     
@@ -64,11 +65,11 @@ public class TelaCarro extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Tipo", "Placa", "Marca", "Modelo", "Ano Fabr.", "Preço Base R$", "Disponível/Alugado"
+                "ID", "Tipo", "Placa", "Marca", "Modelo", "Ano Fabr.", "Preço Base", "Disponível/Alugado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false
@@ -203,8 +204,8 @@ public class TelaCarro extends javax.swing.JFrame {
                 veiculo.getPlaca(),
                 veiculo.getMarca(),
                 veiculo.getModelo(),
-                veiculo.getAnoFabricacao(),
-                veiculo.getPrecoBase(),
+                String.valueOf(veiculo.getAnoFabricacao()),
+                VerificarString.formatarMoedaReal(veiculo.getPrecoBase()),
                 veiculo.isDisponivel()
             });
         }
