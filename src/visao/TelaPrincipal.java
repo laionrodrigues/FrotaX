@@ -1,6 +1,7 @@
 package visao;
 
 import javax.swing.JOptionPane;
+import service.GerenciadorCliente;
 import service.GerenciadorVeiculos;
 
 public class TelaPrincipal extends javax.swing.JFrame {
@@ -8,10 +9,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaPrincipal.class.getName());
     
     private final GerenciadorVeiculos gerenciadorVeiculos = new GerenciadorVeiculos();
+    private final GerenciadorCliente gerenciadorCliente = new GerenciadorCliente();
     
     public TelaPrincipal() {
         initComponents();
-        setTitle("Sistema de Frota e Locações");
+        setTitle("FrotaX");
         setResizable(false);
         this.configTelas();
     }
@@ -105,7 +107,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton_GerenciarVeiculoActionPerformed
 
     private void jToggleButton_GerenciarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_GerenciarClienteActionPerformed
-        // TODO add your handling code here:
+        TelaCliente telaCliente = new TelaCliente(gerenciadorCliente);
+        telaCliente.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jToggleButton_GerenciarClienteActionPerformed
 
     /**

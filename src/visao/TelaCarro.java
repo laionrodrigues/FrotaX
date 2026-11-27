@@ -41,7 +41,6 @@ public class TelaCarro extends javax.swing.JFrame {
         jButton_Voltar = new javax.swing.JButton();
         jToggleButton_CadastrarVeiculo = new javax.swing.JToggleButton();
         jToggleButton_RemoverVeiculo = new javax.swing.JToggleButton();
-        jButton_CalcularAluguel = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -100,8 +99,6 @@ public class TelaCarro extends javax.swing.JFrame {
         jToggleButton_RemoverVeiculo.setText("Remover");
         jToggleButton_RemoverVeiculo.addActionListener(this::jToggleButton_RemoverVeiculoActionPerformed);
 
-        jButton_CalcularAluguel.setText("Calcular aluguel");
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setText("FrotaX");
 
@@ -109,26 +106,22 @@ public class TelaCarro extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(431, 431, 431))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton_Voltar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(317, 317, 317)
-                        .addComponent(jButton_CalcularAluguel)
-                        .addGap(40, 40, 40)
-                        .addComponent(jToggleButton_RemoverVeiculo)
-                        .addGap(40, 40, 40)
-                        .addComponent(jToggleButton_CadastrarVeiculo)))
-                .addContainerGap(355, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jButton_Voltar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(396, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jToggleButton_RemoverVeiculo)
+                        .addGap(40, 40, 40)
+                        .addComponent(jToggleButton_CadastrarVeiculo))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(431, 431, 431))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,8 +133,7 @@ public class TelaCarro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jToggleButton_CadastrarVeiculo)
-                    .addComponent(jToggleButton_RemoverVeiculo)
-                    .addComponent(jButton_CalcularAluguel))
+                    .addComponent(jToggleButton_RemoverVeiculo))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -219,7 +211,6 @@ public class TelaCarro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_CalcularAluguel;
     private javax.swing.JButton jButton_Voltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

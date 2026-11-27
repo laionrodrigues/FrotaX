@@ -2,19 +2,19 @@ package visao;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import modelo.Veiculo;
-import service.GerenciadorVeiculos;
+import modelo.Cliente;
+import service.GerenciadorCliente;
 
 public class TelaCliente extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaCliente.class.getName());
     
-    private GerenciadorVeiculos gerenciadorVeiculos;
+    private GerenciadorCliente gerenciadorCliente;
 
-    public TelaCliente(GerenciadorVeiculos gerenciadorVeiculos) {
+    public TelaCliente(GerenciadorCliente gerenciadorCliente) {
         initComponents();
         this.configTelas();
-        this.gerenciadorVeiculos = gerenciadorVeiculos;
+        this.gerenciadorCliente = gerenciadorCliente;
         carregarTabela();
         pack();
     }
@@ -36,11 +36,10 @@ public class TelaCliente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable_TabelaCarros = new javax.swing.JTable();
+        jTable_TabelaCliente = new javax.swing.JTable();
         jButton_Voltar = new javax.swing.JButton();
-        jToggleButton_CadastrarVeiculo = new javax.swing.JToggleButton();
-        jToggleButton_RemoverVeiculo = new javax.swing.JToggleButton();
-        jButton_CalcularAluguel = new javax.swing.JButton();
+        jToggleButton_CadastrarCliente = new javax.swing.JToggleButton();
+        jToggleButton_RemoverCliente = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -56,22 +55,22 @@ public class TelaCliente extends javax.swing.JFrame {
         jPanel1.setOpaque(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(1024, 700));
 
-        jTable_TabelaCarros.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_TabelaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Tipo", "Placa", "Marca", "Modelo", "Preço Base R$"
+                "ID", "Nome", "D.N.", "CPF", "CNH"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -82,24 +81,22 @@ public class TelaCliente extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable_TabelaCarros.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(jTable_TabelaCarros);
-        if (jTable_TabelaCarros.getColumnModel().getColumnCount() > 0) {
-            jTable_TabelaCarros.getColumnModel().getColumn(0).setMinWidth(55);
-            jTable_TabelaCarros.getColumnModel().getColumn(0).setPreferredWidth(40);
-            jTable_TabelaCarros.getColumnModel().getColumn(0).setMaxWidth(70);
+        jTable_TabelaCliente.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(jTable_TabelaCliente);
+        if (jTable_TabelaCliente.getColumnModel().getColumnCount() > 0) {
+            jTable_TabelaCliente.getColumnModel().getColumn(0).setMinWidth(55);
+            jTable_TabelaCliente.getColumnModel().getColumn(0).setPreferredWidth(40);
+            jTable_TabelaCliente.getColumnModel().getColumn(0).setMaxWidth(70);
         }
 
         jButton_Voltar.setText("Voltar");
         jButton_Voltar.addActionListener(this::jButton_VoltarActionPerformed);
 
-        jToggleButton_CadastrarVeiculo.setText("Cadastrar");
-        jToggleButton_CadastrarVeiculo.addActionListener(this::jToggleButton_CadastrarVeiculoActionPerformed);
+        jToggleButton_CadastrarCliente.setText("Cadastrar");
+        jToggleButton_CadastrarCliente.addActionListener(this::jToggleButton_CadastrarClienteActionPerformed);
 
-        jToggleButton_RemoverVeiculo.setText("Remover");
-        jToggleButton_RemoverVeiculo.addActionListener(this::jToggleButton_RemoverVeiculoActionPerformed);
-
-        jButton_CalcularAluguel.setText("Calcular aluguel");
+        jToggleButton_RemoverCliente.setText("Remover");
+        jToggleButton_RemoverCliente.addActionListener(this::jToggleButton_RemoverClienteActionPerformed);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setText("FrotaX");
@@ -108,26 +105,22 @@ public class TelaCliente extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(431, 431, 431))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton_Voltar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(317, 317, 317)
-                        .addComponent(jButton_CalcularAluguel)
-                        .addGap(40, 40, 40)
-                        .addComponent(jToggleButton_RemoverVeiculo)
-                        .addGap(40, 40, 40)
-                        .addComponent(jToggleButton_CadastrarVeiculo)))
-                .addContainerGap(355, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jButton_Voltar)
+                .addContainerGap(946, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jToggleButton_RemoverCliente)
+                        .addGap(40, 40, 40)
+                        .addComponent(jToggleButton_CadastrarCliente))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(431, 431, 431))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,9 +131,8 @@ public class TelaCliente extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton_CadastrarVeiculo)
-                    .addComponent(jToggleButton_RemoverVeiculo)
-                    .addComponent(jButton_CalcularAluguel))
+                    .addComponent(jToggleButton_CadastrarCliente)
+                    .addComponent(jToggleButton_RemoverCliente))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -162,9 +154,10 @@ public class TelaCliente extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton_CadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_CadastrarVeiculoActionPerformed
-        
-    }//GEN-LAST:event_jToggleButton_CadastrarVeiculoActionPerformed
+    private void jToggleButton_CadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_CadastrarClienteActionPerformed
+        TelaCadastrarCliente telaCadastrarCliente = new TelaCadastrarCliente(gerenciadorCliente, this);
+        telaCadastrarCliente.setVisible(true);
+    }//GEN-LAST:event_jToggleButton_CadastrarClienteActionPerformed
 
     private void jButton_VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_VoltarActionPerformed
         TelaPrincipal telaPrincipal = new TelaPrincipal();
@@ -172,37 +165,36 @@ public class TelaCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton_VoltarActionPerformed
 
-    private void jToggleButton_RemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_RemoverVeiculoActionPerformed
-        int linha = jTable_TabelaCarros.getSelectedRow();
+    private void jToggleButton_RemoverClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_RemoverClienteActionPerformed
+        int linha = jTable_TabelaCliente.getSelectedRow();
         if (linha == -1) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Selecione um veículo para remover.");
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecione um cliente para remover.");
             return;
         }
 
-        Veiculo veiculoParaRemover = gerenciadorVeiculos.listarVeiculos().get(linha);
+        Cliente clienteParaRemover = gerenciadorCliente.listarClientes().get(linha);
 
         try {
-            gerenciadorVeiculos.removerVeiculo(veiculoParaRemover);
+            gerenciadorCliente.removerCliente(clienteParaRemover);
             carregarTabela();
-            javax.swing.JOptionPane.showMessageDialog(this, "Veículo removido com sucesso.");
+            javax.swing.JOptionPane.showMessageDialog(this, "Cliente removido com sucesso.");
         } catch (IllegalArgumentException ex) {
             javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage());
         }
-    }//GEN-LAST:event_jToggleButton_RemoverVeiculoActionPerformed
+    }//GEN-LAST:event_jToggleButton_RemoverClienteActionPerformed
 
     
     protected void carregarTabela() {
-        DefaultTableModel modelo = (DefaultTableModel) jTable_TabelaCarros.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) jTable_TabelaCliente.getModel();
         modelo.setRowCount(0);
 
-        for (Veiculo veiculo : gerenciadorVeiculos.listarVeiculos()) {
+        for (Cliente veiculo : gerenciadorCliente.listarClientes()) {
             modelo.addRow(new Object[]{
                 veiculo.getId(),
-                veiculo.getTipo(),
-                veiculo.getPlaca(),
-                veiculo.getMarca(),
-                veiculo.getModelo(),
-                veiculo.getPrecoBase()
+                veiculo.getNome(),
+                veiculo.getDataNascimento(),
+                veiculo.getCpf(),
+                veiculo.getCnh()
             });
         }
     }
@@ -215,14 +207,13 @@ public class TelaCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_CalcularAluguel;
     private javax.swing.JButton jButton_Voltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable_TabelaCarros;
-    private javax.swing.JToggleButton jToggleButton_CadastrarVeiculo;
-    private javax.swing.JToggleButton jToggleButton_RemoverVeiculo;
+    private javax.swing.JTable jTable_TabelaCliente;
+    private javax.swing.JToggleButton jToggleButton_CadastrarCliente;
+    private javax.swing.JToggleButton jToggleButton_RemoverCliente;
     // End of variables declaration//GEN-END:variables
 }
