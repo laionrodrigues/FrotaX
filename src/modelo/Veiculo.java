@@ -21,6 +21,7 @@ public abstract class Veiculo {
         setModelo(modelo);
         setAnoFabricacao(anoFabricacao);
         setPrecoBase(precoBase);
+        setDisponivel(true);
     }
 
     public String toString() {

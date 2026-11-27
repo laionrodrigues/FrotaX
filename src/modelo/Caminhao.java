@@ -8,7 +8,6 @@ public class Caminhao extends Veiculo {
     public Caminhao(String placa,String tipo, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
         super(placa, tipo, marca, modelo, anoFabricacao, 350);
         setHorasAlugadas(horasAlugadas);
-        setDisponivel(false);
     }
 
     @Override

@@ -6,7 +6,6 @@ public class Moto extends Veiculo {
     public Moto(String placa, String tipo, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
         super(placa, tipo, marca, modelo, anoFabricacao, 25);
         setHorasAlugadas(horasAlugadas);
-        setDisponivel(false);
     }
 
     @Override

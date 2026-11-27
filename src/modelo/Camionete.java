@@ -8,7 +8,6 @@ public class Camionete extends Veiculo {
     public Camionete(String placa, String tipo, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
         super(placa, "Caminonete", marca, modelo, anoFabricacao, 200);
         setHorasAlugadas(horasAlugadas);
-        setDisponivel(false);
     }
 
     @Override
