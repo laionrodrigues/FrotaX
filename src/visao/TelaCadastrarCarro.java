@@ -181,8 +181,7 @@ public class TelaCadastrarCarro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, e.getMessage(), "Atenção", JOptionPane.WARNING_MESSAGE);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        
+        }      
     }//GEN-LAST:event_jToggleButton_CadastrarActionPerformed
 
     private void jTextField_MarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_MarcaActionPerformed

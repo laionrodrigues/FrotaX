@@ -4,7 +4,7 @@ public class Carro extends Veiculo {
     private int horasAlugadas;
 
     public Carro(String placa,String tipo, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
-        super(placa, tipo, modelo, marca, anoFabricacao, 50);
+        super(placa, tipo, marca, modelo, anoFabricacao, 50);
         setHorasAlugadas(horasAlugadas);
     }
 

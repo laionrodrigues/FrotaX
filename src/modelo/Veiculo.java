@@ -47,6 +47,7 @@ public abstract class Veiculo {
         if (!VerificarString.validarPlaca(placa)) {
             throw new IllegalArgumentException("Placa inválida. Placa deve conter 7 caracteres de (A-Z) e (0-9)");
         }
+        placa = VerificarString.formatarTodasLetrasMaiusculas(placa);
         this.placa = placa;
     }
 
@@ -67,7 +68,7 @@ public abstract class Veiculo {
                 || tipo.equalsIgnoreCase("camionete"))) {
             throw new IllegalArgumentException("Tipo de veiculo inválido.\nApenas carro, moto, camionete ou caminhão.");
         }
-        tipo = VerificarString.formatarString(tipo);
+        tipo = VerificarString.formatarPrimeiraLetraMaiuscula(tipo);
         this.tipo = tipo;
     }
 
@@ -79,7 +80,7 @@ public abstract class Veiculo {
         if (modelo == null || modelo.isBlank()) {
             throw new IllegalArgumentException("O campo modelo não pode estar vazio.");
         }
-        modelo = VerificarString.formatarString(modelo);
+        modelo = VerificarString.formatarPrimeiraLetraMaiuscula(modelo);
         this.modelo = modelo;
     }
 
@@ -91,7 +92,7 @@ public abstract class Veiculo {
         if (marca == null || marca.isBlank()) {
             throw new IllegalArgumentException("O campo marca não pode estar vazio.");
         }
-        marca = VerificarString.formatarString(marca);
+        marca = VerificarString.formatarPrimeiraLetraMaiuscula(marca);
         this.marca = marca;
     }
 

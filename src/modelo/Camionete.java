@@ -6,7 +6,7 @@ public class Camionete extends Veiculo {
     private int horasAlugadas;
 
     public Camionete(String placa, String tipo, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
-        super(placa, "Caminonete", marca, modelo, anoFabricacao, 200);
+        super(placa, tipo, marca, modelo, anoFabricacao, 200);
         setHorasAlugadas(horasAlugadas);
     }
 

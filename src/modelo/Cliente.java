@@ -43,7 +43,7 @@ public class Cliente {
         if (nome == null || nome.isBlank()) {
             throw new IllegalArgumentException("Nome inválido.");
         }
-        this.nome = VerificarString.formatarString(nome.strip());
+        this.nome = VerificarString.formatarPrimeiraLetraMaiuscula(nome.strip());
     }
 
     public String getSobrenome() {
@@ -54,7 +54,7 @@ public class Cliente {
         if (sobrenome == null || sobrenome.isBlank()) {
             throw new IllegalArgumentException("Sobrenome inválido.");
         }
-        this.sobrenome = VerificarString.formatarString(sobrenome.strip());
+        this.sobrenome = VerificarString.formatarPrimeiraLetraMaiuscula(sobrenome.strip());
     }
 
     public String getNomeCompleto() {

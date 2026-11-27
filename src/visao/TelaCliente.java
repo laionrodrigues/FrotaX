@@ -163,8 +163,7 @@ public class TelaCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton_CadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_CadastrarVeiculoActionPerformed
-        TelaCadastrarCarro telaCadastrarCarro = new TelaCadastrarCarro(gerenciadorVeiculos, this);
-        telaCadastrarCarro.setVisible(true);
+        
     }//GEN-LAST:event_jToggleButton_CadastrarVeiculoActionPerformed
 
     private void jButton_VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_VoltarActionPerformed
