@@ -4,7 +4,6 @@
  */
 package visao;
 
-import java.time.Year;
 import javax.swing.JOptionPane;
 import modelo.*;
 import service.GerenciadorVeiculos;
@@ -20,8 +19,14 @@ public class TelaCadastrarCarro extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastrarCarro
      */
-    public TelaCadastrarCarro() {
+    
+    private GerenciadorVeiculos gerenciadorVeiculos;
+    private TelaCarro telaCarro;
+    
+    public TelaCadastrarCarro(GerenciadorVeiculos gerenciadorVeiculos, TelaCarro telaCarro) {
         initComponents();
+        this.gerenciadorVeiculos = gerenciadorVeiculos;
+        this.telaCarro = telaCarro;
         this.configTelas();
     }
     
@@ -146,34 +151,33 @@ public class TelaCadastrarCarro extends javax.swing.JFrame {
             String tipo = jTextField_Tipo.getText();
             String marca = jTextField_Marca.getText();
             String modelo = jTextField_Modelo.getText();
-            int anoFabricacao = Integer.parseInt(jTextField_AnoFabricacao.getText());
-            GerenciadorVeiculos gerenciadorVeiculos = new GerenciadorVeiculos();
-            
-            
+            int anoFabricacao = Integer.parseInt(jTextField_AnoFabricacao.getText());           
             
             if(tipo.equalsIgnoreCase("Carro")) {
-                Carro carro = new Carro(placa, marca, modelo, anoFabricacao, 6);
+                Carro carro = new Carro(placa, tipo, marca, modelo, anoFabricacao, 6);
                 gerenciadorVeiculos.adicionarVeiculo(carro);
+                telaCarro.carregarTabela();
                 this.dispose();
             } else if (tipo.equalsIgnoreCase("Moto")) {
-                Moto moto = new Moto(placa, marca, modelo, anoFabricacao, 6);
+                Moto moto = new Moto(placa, tipo, marca, modelo, anoFabricacao, 6);
                 gerenciadorVeiculos.adicionarVeiculo(moto);
+                telaCarro.carregarTabela();
                 this.dispose();
             } else if (tipo.equalsIgnoreCase("Camionete")) {
-                Camionete camionete = new Camionete(placa, marca, modelo, anoFabricacao, 6);
+                Camionete camionete = new Camionete(placa, tipo, marca, modelo, anoFabricacao, 6);
                 gerenciadorVeiculos.adicionarVeiculo(camionete);
+                telaCarro.carregarTabela();
                 this.dispose();
             } else {
-                Caminhao caminhao = new Caminhao(placa, marca, modelo, anoFabricacao, 6);
+                Caminhao caminhao = new Caminhao(placa, tipo, marca, modelo, anoFabricacao, 6);
                 gerenciadorVeiculos.adicionarVeiculo(caminhao);
+                telaCarro.carregarTabela();
                 this.dispose();
             }
             javax.swing.JOptionPane.showMessageDialog(this, "Veículo cadastrado com sucesso!");
         } catch (NumberFormatException e) {
-            // Caso o usuário digite letras no ano (ex: "abcd")
             JOptionPane.showMessageDialog(this, "O ano de fabricação deve conter apenas números.", "Atenção", JOptionPane.WARNING_MESSAGE);
         } catch (IllegalArgumentException e) {
-            // Dispara as mensagens dos setters (placa, marca, modelo, ano) na ordem!
             JOptionPane.showMessageDialog(this, e.getMessage(), "Atenção", JOptionPane.WARNING_MESSAGE);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
@@ -211,7 +215,7 @@ public class TelaCadastrarCarro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TelaCadastrarCarro().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new TelaCarro().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

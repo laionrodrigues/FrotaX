@@ -41,7 +41,7 @@ public abstract class Veiculo {
 
     public void setPlaca(String placa) {
         if (placa == null || placa.isBlank()) {
-            throw new IllegalArgumentException("Placa inválida.");
+            throw new IllegalArgumentException("O campo placa não pode estar vazio.");
         }
         if (!VerificarString.validarPlaca(placa)) {
             throw new IllegalArgumentException("Placa inválida. Placa deve conter 7 caracteres de (A-Z) e (0-9)");
@@ -54,17 +54,17 @@ public abstract class Veiculo {
     }
 
     public void setTipo(String tipo) {
+        if (tipo == null || tipo.isBlank()) {
+            throw new IllegalArgumentException("O campo tipo não pode estar vazio.");
+        }
         if ((tipo.equalsIgnoreCase("caminhao"))) {
             throw new IllegalArgumentException("Tipo inválido. É necessário acento ~ no caminh(a)o ");
-        }
-        if (tipo == null || tipo.isBlank()) {
-            throw new IllegalArgumentException("Tipo de veículo inválido.");
         }
         if (!(tipo.equalsIgnoreCase("carro")
                 || tipo.equalsIgnoreCase("caminhão")
                 || tipo.equalsIgnoreCase("moto")
                 || tipo.equalsIgnoreCase("camionete"))) {
-            throw new IllegalArgumentException("Tipo de veiculo inválido.");
+            throw new IllegalArgumentException("Tipo de veiculo inválido.\nApenas carro, moto, camionete ou caminhão.");
         }
         tipo = VerificarString.formatarString(tipo);
         this.tipo = tipo;
@@ -76,7 +76,7 @@ public abstract class Veiculo {
 
     public void setModelo(String modelo) {
         if (modelo == null || modelo.isBlank()) {
-            throw new IllegalArgumentException("Modelo inválido.");
+            throw new IllegalArgumentException("O campo modelo não pode estar vazio.");
         }
         modelo = VerificarString.formatarString(modelo);
         this.modelo = modelo;
@@ -88,7 +88,7 @@ public abstract class Veiculo {
 
     public void setMarca(String marca) {
         if (marca == null || marca.isBlank()) {
-            throw new IllegalArgumentException("Marca inválida.");
+            throw new IllegalArgumentException("O campo marca não pode estar vazio.");
         }
         marca = VerificarString.formatarString(marca);
         this.marca = marca;

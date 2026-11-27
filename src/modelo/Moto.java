@@ -1,12 +1,10 @@
 package modelo;
 
-import java.time.Year;
-
 public class Moto extends Veiculo {
     private int horasAlugadas;
 
-    public Moto(String placa, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
-        super(placa, "Moto", marca, modelo, anoFabricacao, 25);
+    public Moto(String placa, String tipo, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
+        super(placa, tipo, marca, modelo, anoFabricacao, 25);
         setHorasAlugadas(horasAlugadas);
         setDisponivel(false);
     }

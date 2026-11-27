@@ -8,6 +8,7 @@ public class VerificarString {
         if (texto == null || texto.isEmpty()) {
             return texto;
         }
+        texto.trim();
         return texto.substring(0, 1).toUpperCase() + texto.substring(1).toLowerCase();
     }
 

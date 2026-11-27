@@ -7,7 +7,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaPrincipal.class.getName());
     
-    private GerenciadorVeiculos gerenciadorVeiculos = new GerenciadorVeiculos();
+    private final GerenciadorVeiculos gerenciadorVeiculos = new GerenciadorVeiculos();
     
     public TelaPrincipal() {
         initComponents();
@@ -99,7 +99,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton_GerenciarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_GerenciarVeiculoActionPerformed
-        TelaCarro telaCarro = new TelaCarro(this.gerenciadorVeiculos);
+        TelaCarro telaCarro = new TelaCarro(gerenciadorVeiculos);
         telaCarro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jToggleButton_GerenciarVeiculoActionPerformed

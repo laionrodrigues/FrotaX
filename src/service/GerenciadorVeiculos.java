@@ -4,6 +4,7 @@ import modelo.Veiculo;
 
 import java.time.Year;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GerenciadorVeiculos {
@@ -48,5 +49,9 @@ public class GerenciadorVeiculos {
             precoFinal = valorComDesconto * horasAlugadas;
             return precoFinal;
         }
+    }
+    
+    public List<Veiculo> listarVeiculos() {
+        return Collections.unmodifiableList(frota);
     }
 }

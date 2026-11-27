@@ -5,8 +5,8 @@ import java.time.Year;
 public class Caminhao extends Veiculo {
     private int horasAlugadas;
 
-    public Caminhao(String placa, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
-        super(placa, "Caminhão", marca, modelo, anoFabricacao, 350);
+    public Caminhao(String placa,String tipo, String marca, String modelo, int anoFabricacao, int horasAlugadas) {
+        super(placa, tipo, marca, modelo, anoFabricacao, 350);
         setHorasAlugadas(horasAlugadas);
         setDisponivel(false);
     }
