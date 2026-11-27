@@ -152,15 +152,19 @@ public class TelaCadastrarCarro extends javax.swing.JFrame {
             if(tipo.equalsIgnoreCase("Carro")) {
                 Carro carro = new Carro(placa, marca, modelo, anoFabricacao.getValue(), 6);
                 gerenciadorVeiculos.adicionarVeiculo(carro);
+                this.dispose();
             } else if (tipo.equalsIgnoreCase("Moto")) {
                 Moto moto = new Moto(placa, marca, modelo, anoFabricacao.getValue(), 6);
                 gerenciadorVeiculos.adicionarVeiculo(moto);
+                this.dispose();
             } else if (tipo.equalsIgnoreCase("Camionete")) {
-                Camionete camionete = new Camionete(placa,, marca, modelo, anoFabricacao.getValue(), 6);
+                Camionete camionete = new Camionete(placa, marca, modelo, anoFabricacao.getValue(), 6);
                 gerenciadorVeiculos.adicionarVeiculo(camionete);
+                this.dispose();
             } else {
-                Caminhao caminhao = new Caminhao(placa, tipo, marca, modelo, anoFabricacao.getValue(), 6);
+                Caminhao caminhao = new Caminhao(placa, marca, modelo, anoFabricacao.getValue(), 6);
                 gerenciadorVeiculos.adicionarVeiculo(caminhao);
+                this.dispose();
             }
             javax.swing.JOptionPane.showMessageDialog(this, "Veículo cadastrado com sucesso!");
         } catch (IllegalArgumentException e) {
