@@ -174,7 +174,21 @@ public class TelaCarro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_VoltarActionPerformed
 
     private void jToggleButton_RemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_RemoverVeiculoActionPerformed
-        gerenciadorVeiculos.removerVeiculo;
+        int linha = jTable_TabelaCarros.getSelectedRow();
+        if (linha == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecione um veículo para remover.");
+            return;
+        }
+
+        Veiculo veiculoParaRemover = gerenciadorVeiculos.listarVeiculos().get(linha);
+
+        try {
+            gerenciadorVeiculos.removerVeiculo(veiculoParaRemover);
+            carregarTabela();
+            javax.swing.JOptionPane.showMessageDialog(this, "Veículo removido com sucesso.");
+        } catch (IllegalArgumentException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }//GEN-LAST:event_jToggleButton_RemoverVeiculoActionPerformed
 
     
